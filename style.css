@@ -55,6 +55,12 @@ h1 { margin: 0.5rem 0; font-size: 2rem; }
 
 footer { margin-top: 3rem; font-size: 0.8rem; color: #555; }
 
-.thirdly {
-    background-color: #343c; 
+/* 为简历按钮定义一个紫色的背景 */
+.btn-resume {
+  background-color: #6f42c1; /* 你可以根据需要调整这个紫色值 */
+}
+
+/* 添加鼠标悬停时的效果，让颜色变深一点 */
+.btn-resume:hover {
+  background-color: #5a32a3;
 }
