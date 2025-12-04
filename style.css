@@ -55,8 +55,6 @@ h1 { margin: 0.5rem 0; font-size: 2rem; }
 
 footer { margin-top: 3rem; font-size: 0.8rem; color: #555; }
 
-/* btn design for thirdary button */
-.thirdary {
-    background-color: #343c;
-    color:white;
+.thirdly {
+    background-color: #343c; 
 }
