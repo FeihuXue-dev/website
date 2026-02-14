@@ -4,81 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./pictures/哆啦A梦裂缝分割logo-modified.png">
-    <title>薛飞虎 | 个人主页</title>
-    <meta name="description" content="薛飞虎的个人主页，记录项目、思考和持续学习。">
+    <title>薛飞虎 | Material 主页</title>
+    <meta name="description" content="薛飞虎的 Material 风格个人主页，整合卡片导航与武汉天气。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Roboto:wght@400;500;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="bg-orb orb-a" aria-hidden="true"></div>
-    <div class="bg-orb orb-b" aria-hidden="true"></div>
-
+    <div class="page-shell"></div>
     <div class="page">
-        <header class="hero card reveal">
-            <div class="avatar-wrap">
-                <img src="./pictures/小猫.jpg" alt="薛飞虎头像" class="avatar">
+        <header class="top-appbar material-card">
+            <div class="appbar-left">
+                <img src="./pictures/哆啦A梦裂缝分割logo-modified.png" alt="站点 Logo" class="app-logo">
+                <div>
+                    <p class="label">PERSONAL HOMEPAGE</p>
+                    <h1>薛飞虎</h1>
+                </div>
             </div>
-            <div>
-                <p class="kicker">HELLO, I AM</p>
-                <h1>薛飞虎</h1>
-                <p class="subtitle">开发者 · 思考者 · 创造者 · 终身学习者</p>
-                <p class="bio">欢迎来到我的个人主页。这里记录我的项目实践、技术探索和阶段性思考，当前聚焦于 Web 开发、人工智能与计算机视觉。</p>
-            </div>
-            <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">查看项目</a>
-                <a href="https://cv.gislab.dpdns.org" class="btn btn-outline">查看简历</a>
-            </div>
+            <a href="mailto:feihu980@gmail.com" class="app-action">
+                <i class="fas fa-paper-plane"></i>
+                <span>联系我</span>
+            </a>
         </header>
 
-        <main>
-            <section id="projects" class="card section reveal delay-1">
-                <h2>现在在做什么</h2>
-                <div class="grid">
-                    <article class="panel">
-                        <h3>裂缝分割研究</h3>
-                        <p>围绕语义分割模型，持续优化道路裂缝识别效果，关注泛化能力与部署效率。</p>
-                    </article>
-                    <article class="panel">
-                        <h3>Web 工具开发</h3>
-                        <p>构建轻量、可维护的前端页面与工具型站点，提升信息表达和交互体验。</p>
-                    </article>
-                    <article class="panel">
-                        <h3>知识沉淀</h3>
-                        <p>整理实验记录、踩坑经验和方法论，把分散经验变成可复用的实践资产。</p>
-                    </article>
+        <main class="board">
+            <section class="material-card hero-card">
+                <img src="./pictures/小猫.jpg" alt="薛飞虎头像" class="avatar">
+                <div>
+                    <p class="label">ABOUT ME</p>
+                    <h2>开发者 / AI 研究实践者</h2>
+                    <p>专注 Web、人工智能与计算机视觉，把研究、代码和产品体验整合成真正可用的工具。</p>
                 </div>
             </section>
 
-            <section class="card section reveal delay-2">
-                <h2>快速入口</h2>
-                <div class="quick-links">
-                    <a href="#" class="quick-link">
-                        <span>我的博客</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://github.com/FeihuXue-dev?tab=repositories" class="quick-link">
-                        <span>GitHub 项目</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="mailto:feihu980@gmail.com" class="quick-link">
-                        <span>联系我</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            <section class="material-card weather-card">
+                <p id="dateLine" class="date-line">--</p>
+                <p id="timeLine" class="time-line">--:--:--</p>
+                <p id="weatherLine" class="weather-line">武汉市 天气加载中...</p>
             </section>
+
+            <section class="material-card quote-card">
+                <p id="quoteText" class="quote">"生命如意志永存，青春永远年轻。"</p>
+                <p id="quoteAuthor" class="quote-author">- 安琪七旬</p>
+            </section>
+
+            <a class="material-card nav-card" href="https://github.com/FeihuXue-dev?tab=repositories">
+                <i class="fab fa-github"></i>
+                <h3>项目仓库</h3>
+                <p>查看代码与实验记录</p>
+            </a>
+
+            <a class="material-card nav-card" href="https://cv.gislab.dpdns.org">
+                <i class="fas fa-file-lines"></i>
+                <h3>个人简历</h3>
+                <p>教育、经历与技能概览</p>
+            </a>
+
+            <a class="material-card nav-card" href="https://x.com/FlyTiger1210">
+                <i class="fab fa-twitter"></i>
+                <h3>动态更新</h3>
+                <p>记录观点与阶段进展</p>
+            </a>
+
+            <a class="material-card nav-card" href="mailto:feihu980@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <h3>邮件联系</h3>
+                <p>欢迎合作与技术交流</p>
+            </a>
         </main>
 
-        <footer class="footer reveal delay-3">
-            <div class="social-icons">
-                <a href="https://github.com/FeihuXue-dev?tab=repositories" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/FlyTiger1210" aria-label="X"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:feihu980@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; 2026 Xuefeihu. Powered by Cloudflare Pages.</p>
-        </footer>
+        <footer class="footer">Copyright &copy; 2026 Xuefeihu</footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
