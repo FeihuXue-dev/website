@@ -159,3 +159,10 @@ setInterval(loadWuhanWeather, 10 * 60 * 1000);
 
 loadRandomQuote();
 setInterval(loadRandomQuote, 30 * 60 * 1000);
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("pageLoader");
+    if (loader) {
+        setTimeout(() => loader.classList.add("hidden"), 300);
+    }
+});

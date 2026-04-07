@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">加载中...</p>
+    </div>
     <div class="page-shell"></div>
     <div class="page">
         <header class="top-appbar material-card">
@@ -31,7 +35,7 @@
         </header>
 
         <main class="board">
-            <section class="material-card hero-card">
+            <section class="material-card hero-card animate-in">
                 <img src="./pictures/小猫.jpg" alt="薛飞虎头像" class="avatar">
                 <div>
                     <p class="label">ABOUT ME</p>
@@ -40,36 +44,36 @@
                 </div>
             </section>
 
-            <section class="material-card weather-card">
+            <section class="material-card weather-card animate-in">
                 <p id="dateLine" class="date-line">--</p>
                 <p id="timeLine" class="time-line">--:--:--</p>
                 <p id="weatherLine" class="weather-line">武汉市 天气加载中...</p>
             </section>
 
-            <section class="material-card quote-card">
+            <section class="material-card quote-card animate-in">
                 <p id="quoteText" class="quote">"生命如意志永存，青春永远年轻。"</p>
                 <p id="quoteAuthor" class="quote-author">- 安琪七旬</p>
             </section>
 
-            <a class="material-card nav-card" href="https://github.com/FeihuXue-dev?tab=repositories">
+            <a class="material-card nav-card animate-in" href="https://github.com/FeihuXue-dev?tab=repositories">
                 <i class="fab fa-github"></i>
                 <h3>项目仓库</h3>
                 <p>查看代码与实验记录</p>
             </a>
 
-            <a class="material-card nav-card" href="https://cv.gislab.dpdns.org">
+            <a class="material-card nav-card animate-in" href="https://cv.gislab.dpdns.org">
                 <i class="fas fa-file-lines"></i>
                 <h3>个人简历</h3>
                 <p>教育、经历与技能概览</p>
             </a>
 
-            <a class="material-card nav-card" href="https://x.com/FlyTiger1210">
+            <a class="material-card nav-card animate-in" href="https://x.com/FlyTiger1210">
                 <i class="fab fa-twitter"></i>
                 <h3>动态更新</h3>
                 <p>记录观点与阶段进展</p>
             </a>
 
-            <a class="material-card nav-card" href="mailto:feihu980@gmail.com">
+            <a class="material-card nav-card animate-in" href="mailto:feihu980@gmail.com">
                 <i class="fas fa-envelope"></i>
                 <h3>邮件联系</h3>
                 <p>欢迎合作与技术交流</p>
