@@ -1,18 +1,28 @@
 # Personal Homepage Website
 
-这是一个纯静态个人主页仓库，采用 Material 风格卡片布局，包含以下动态模块：
+一个 Material 风格的个人主页，采用卡片式布局整合多种动态模块，支持深色模式切换。
 
-- 武汉实时天气（Open-Meteo）
-- 实时时钟（Asia/Shanghai）
-- 随机哲理语句（Hitokoto）
+## ✨ 特性
+
+- 🌤️ 武汉实时天气（Open-Meteo API）
+- 🕐 实时时钟（Asia/Shanghai 时区）
+- 💬 随机哲理语句（Hitokoto API）
+- 🌙 深色/浅色模式切换（本地存储偏好）
+- 📊 技术栈技能展示（带动画进度条）
+- 🚀 精选项目展示
+- ✨ 页面加载动画 + 卡片入场效果
+- 🔮 背景浮动光效装饰
+- ⬆️ 返回顶部按钮
+- 📱 全面响应式布局（4 个断点：1080px / 900px / 700px / 420px）
+- 👆 触摸设备优化
 
 无需构建工具，直接托管即可上线（推荐 Cloudflare Pages）。
 
 ## 技术栈
 
 - HTML5: `index.html`
-- CSS3: `style.css`
-- Vanilla JavaScript: `script.js`
+- CSS3: `style.css` (CSS Variables, Grid, Animations, Media Queries)
+- Vanilla JavaScript: `script.js` (ES6+)
 - 图标: Font Awesome CDN
 - 字体: Google Fonts（Roboto / Noto Sans SC / Orbitron）
 
@@ -81,8 +91,11 @@ python -m http.server 8080
 
 ## 自定义指南
 
+- 修改主题偏好：页面右上角月亮/太阳按钮
 - 修改头像：替换 `pictures/小猫.jpg`
 - 修改背景图：替换 `pictures/武汉大学大暑.jpg`
+- 修改技能：编辑 `index.html` 中 skills-card 板块
+- 修改项目：编辑 `index.html` 中 projects-card 板块
 - 修改社交链接：编辑 `index.html` 中的导航卡片链接
 - 修改配色与卡片样式：编辑 `style.css` 中 `:root` 变量
 
