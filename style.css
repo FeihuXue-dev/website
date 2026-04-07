@@ -358,6 +358,7 @@ h1 {
     grid-template-columns: 1.4fr 1fr 1fr;
     grid-template-areas:
         "hero weather quote"
+        "hero skills projects"
         "hero nav1 nav2"
         "hero nav3 nav4";
     gap: 16px;
@@ -472,6 +473,124 @@ h1 {
     border-color: rgba(48, 96, 221, 0.26);
 }
 
+/* === 技能卡片 === */
+.skills-card {
+    grid-area: skills;
+    padding: var(--md-space-lg);
+}
+
+.skills-card h3 {
+    margin: 4px 0 14px;
+    font-size: 1.1rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skill-item i {
+    font-size: 1.2rem;
+    color: var(--md-primary);
+}
+
+.skill-item span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--md-text);
+}
+
+.skill-bar {
+    height: 6px;
+    background: var(--md-line);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--md-primary), var(--md-primary-light));
+    border-radius: 3px;
+    width: 0;
+    animation: skillGrow 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+@keyframes skillGrow {
+    from { width: 0; }
+}
+
+/* === 项目卡片 === */
+.projects-card {
+    grid-area: projects;
+    padding: var(--md-space-lg);
+}
+
+.projects-card h3 {
+    margin: 4px 0 14px;
+    font-size: 1.1rem;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--md-radius-sm);
+    background: var(--md-surface);
+    border: 1px solid var(--md-line);
+    text-decoration: none;
+    color: var(--md-text);
+    transition: all var(--md-transition-fast);
+}
+
+.project-item:hover {
+    background: var(--md-surface-hover);
+    border-color: var(--md-primary);
+    transform: translateX(4px);
+}
+
+.project-item > i:first-child {
+    font-size: 1.2rem;
+    color: var(--md-primary);
+}
+
+.project-info h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.project-info p {
+    margin: 2px 0 0;
+    font-size: 0.82rem;
+    color: var(--md-muted);
+}
+
+.project-arrow {
+    margin-left: auto;
+    color: var(--md-muted);
+    transition: all var(--md-transition-fast);
+}
+
+.project-item:hover .project-arrow {
+    color: var(--md-primary);
+    transform: translateX(4px);
+}
+
 .footer {
     margin-top: 18px;
     text-align: center;
@@ -485,6 +604,7 @@ h1 {
         grid-template-areas:
             "hero hero"
             "weather quote"
+            "skills projects"
             "nav1 nav2"
             "nav3 nav4";
     }
@@ -518,6 +638,8 @@ h1 {
             "hero"
             "weather"
             "quote"
+            "skills"
+            "projects"
             "nav1"
             "nav2"
             "nav3"
