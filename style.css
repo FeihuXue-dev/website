@@ -1,14 +1,84 @@
 :root {
+    /* === 背景 === */
     --md-bg: #eaf0ff;
+    --md-bg-overlay: linear-gradient(128deg, rgba(14, 30, 64, 0.46), rgba(16, 34, 74, 0.34));
+    --md-bg-image: url("./pictures/武汉大学大暑.jpg");
+    --md-bg-radial: radial-gradient(1000px 600px at 90% 10%, rgba(118, 165, 255, 0.12), transparent 70%);
+
+    /* === 表面层 === */
     --md-surface: rgba(255, 255, 255, 0.84);
     --md-surface-strong: rgba(255, 255, 255, 0.92);
+    --md-surface-hover: rgba(255, 255, 255, 0.96);
+
+    /* === 文字 === */
     --md-text: #172033;
+    --md-text-inverse: #ffffff;
     --md-muted: #556079;
+    --md-muted-inverse: #a0aec0;
+
+    /* === 品牌色 === */
     --md-primary: #2f6df6;
     --md-primary-deep: #1f4fc0;
+    --md-primary-light: #76a5ff;
+    --md-accent: #f59e0b;
+
+    /* === 边框 === */
     --md-line: rgba(23, 32, 51, 0.1);
+    --md-line-strong: rgba(23, 32, 51, 0.18);
+
+    /* === 阴影 === */
     --md-shadow-1: 0 6px 16px rgba(18, 29, 53, 0.14);
     --md-shadow-2: 0 18px 42px rgba(17, 35, 82, 0.22);
+    --md-shadow-glow: 0 0 30px rgba(47, 109, 246, 0.15);
+
+    /* === 圆角 === */
+    --md-radius-sm: 14px;
+    --md-radius-md: 22px;
+    --md-radius-lg: 24px;
+
+    /* === 间距 === */
+    --md-space-xs: 8px;
+    --md-space-sm: 12px;
+    --md-space-md: 16px;
+    --md-space-lg: 20px;
+    --md-space-xl: 26px;
+
+    /* === 过渡 === */
+    --md-transition-fast: 160ms ease;
+    --md-transition-base: 280ms ease;
+    --md-transition-slow: 420ms ease;
+
+    /* === 字体 === */
+    --font-sans: "Roboto", "Noto Sans SC", sans-serif;
+    --font-mono: "Orbitron", sans-serif;
+}
+
+/* === 深色主题 === */
+[data-theme="dark"] {
+    --md-bg: #0f1724;
+    --md-bg-overlay: linear-gradient(128deg, rgba(0, 0, 0, 0.6), rgba(5, 10, 25, 0.5));
+    --md-bg-radial: radial-gradient(1000px 600px at 90% 10%, rgba(118, 165, 255, 0.08), transparent 70%);
+
+    --md-surface: rgba(24, 34, 56, 0.88);
+    --md-surface-strong: rgba(30, 42, 68, 0.94);
+    --md-surface-hover: rgba(36, 50, 80, 0.96);
+
+    --md-text: #e2e8f0;
+    --md-text-inverse: #0f1724;
+    --md-muted: #94a3b8;
+    --md-muted-inverse: #cbd5e1;
+
+    --md-primary: #6b9bff;
+    --md-primary-deep: #4b7de0;
+    --md-primary-light: #a3c2ff;
+    --md-accent: #fbbf24;
+
+    --md-line: rgba(255, 255, 255, 0.08);
+    --md-line-strong: rgba(255, 255, 255, 0.14);
+
+    --md-shadow-1: 0 6px 16px rgba(0, 0, 0, 0.3);
+    --md-shadow-2: 0 18px 42px rgba(0, 0, 0, 0.45);
+    --md-shadow-glow: 0 0 30px rgba(107, 155, 255, 0.12);
 }
 
 * {
@@ -17,7 +87,7 @@
 
 body {
     margin: 0;
-    font-family: "Roboto", "Noto Sans SC", sans-serif;
+    font-family: var(--font-sans);
     color: var(--md-text);
     min-height: 100vh;
     background-image:
@@ -98,14 +168,36 @@ h1 {
 
 .app-action {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--md-text-inverse);
     background: linear-gradient(135deg, var(--md-primary), var(--md-primary-deep));
-    border-radius: 14px;
+    border-radius: var(--md-radius-sm);
     padding: 11px 16px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-weight: 600;
+}
+
+.theme-toggle {
+    background: var(--md-surface);
+    border: 1px solid var(--md-line);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--md-text);
+    font-size: 1.1rem;
+    transition: all var(--md-transition-fast);
+    margin-right: 10px;
+}
+
+.theme-toggle:hover {
+    background: var(--md-primary);
+    color: #fff;
+    transform: rotate(20deg);
 }
 
 .board {
@@ -153,9 +245,9 @@ h1 {
 
 .weather-card {
     grid-area: weather;
-    background: rgba(34, 50, 94, 0.86);
-    color: #edf3ff;
-    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(34, 50, 94, 0.86), rgba(20, 35, 70, 0.9));
+    color: var(--md-text-inverse);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .date-line {
@@ -168,7 +260,7 @@ h1 {
     font-size: clamp(1.8rem, 3.6vw, 2.5rem);
     line-height: 1;
     letter-spacing: 0.06em;
-    font-family: "Orbitron", sans-serif;
+    font-family: var(--font-mono);
 }
 
 .weather-line {
@@ -209,7 +301,7 @@ h1 {
 
 .nav-card i {
     font-size: 1.4rem;
-    color: var(--md-primary-deep);
+    color: var(--md-primary);
 }
 
 .nav-card h3 {
@@ -230,7 +322,7 @@ h1 {
 .footer {
     margin-top: 18px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--md-muted-inverse);
     font-size: 0.9rem;
 }
 

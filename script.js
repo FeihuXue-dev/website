@@ -1,3 +1,24 @@
+// === 主题切换 ===
+const themeToggle = document.getElementById("themeToggle");
+const html = document.documentElement;
+
+const savedTheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-theme", savedTheme);
+updateThemeIcon(savedTheme);
+
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector("i");
+    icon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+}
+
+themeToggle.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateThemeIcon(next);
+});
+
 const dateLine = document.getElementById("dateLine");
 const timeLine = document.getElementById("timeLine");
 const weatherLine = document.getElementById("weatherLine");
