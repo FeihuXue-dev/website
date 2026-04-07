@@ -218,6 +218,46 @@ body {
     pointer-events: none;
 }
 
+/* === 装饰性光球 === */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--md-primary);
+    top: -100px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--md-accent);
+    bottom: -50px;
+    left: -80px;
+    animation: float 10s ease-in-out infinite reverse;
+    opacity: 0.2;
+}
+
+.orb-3 {
+    width: 200px;
+    height: 200px;
+    background: #8b5cf6;
+    top: 50%;
+    left: 60%;
+    animation: float 12s ease-in-out infinite;
+    animation-delay: -4s;
+    opacity: 0.15;
+}
+
 .page {
     position: relative;
     z-index: 1;
