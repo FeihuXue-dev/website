@@ -160,6 +160,21 @@ setInterval(loadWuhanWeather, 10 * 60 * 1000);
 loadRandomQuote();
 setInterval(loadRandomQuote, 30 * 60 * 1000);
 
+// === 返回顶部 ===
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        backToTop.classList.add("visible");
+    } else {
+        backToTop.classList.remove("visible");
+    }
+}, { passive: true });
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 window.addEventListener("load", () => {
     const loader = document.getElementById("pageLoader");
     if (loader) {
