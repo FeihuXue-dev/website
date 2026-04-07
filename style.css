@@ -370,24 +370,47 @@ h1 {
 
 .hero-card {
     grid-area: hero;
-    padding: 26px;
+    padding: var(--md-space-xl);
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 16px;
+    gap: var(--md-space-md);
     align-content: start;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--md-primary-light), transparent 70%);
+    opacity: 0.08;
+    pointer-events: none;
 }
 
 .avatar {
     width: min(100%, 330px);
     aspect-ratio: 1 / 1;
-    border-radius: 22px;
+    border-radius: var(--md-radius-md);
     object-fit: cover;
     box-shadow: var(--md-shadow-2);
+    transition: transform var(--md-transition-base);
+}
+
+.avatar:hover {
+    transform: scale(1.02) rotate(1deg);
 }
 
 .hero-card h2 {
     margin: 2px 0 10px;
     font-size: clamp(1.24rem, 2.8vw, 1.7rem);
+    background: linear-gradient(135deg, var(--md-text), var(--md-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-card p {
@@ -403,9 +426,23 @@ h1 {
 
 .weather-card {
     grid-area: weather;
-    background: linear-gradient(135deg, rgba(34, 50, 94, 0.86), rgba(20, 35, 70, 0.9));
+    padding: var(--md-space-lg);
+    background: linear-gradient(135deg, rgba(34, 50, 94, 0.86), rgba(15, 25, 50, 0.92));
     color: var(--md-text-inverse);
     border-color: rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.weather-card::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+    border-radius: 50%;
 }
 
 .date-line {
@@ -419,6 +456,7 @@ h1 {
     line-height: 1;
     letter-spacing: 0.06em;
     font-family: var(--font-mono);
+    text-shadow: 0 0 20px rgba(118, 165, 255, 0.3);
 }
 
 .weather-line {
@@ -427,13 +465,30 @@ h1 {
 
 .quote-card {
     grid-area: quote;
+    padding: var(--md-space-lg);
     display: grid;
     align-content: space-between;
+    position: relative;
+}
+
+.quote-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    font-size: 4rem;
+    color: var(--md-primary);
+    opacity: 0.15;
+    font-family: Georgia, serif;
+    line-height: 1;
 }
 
 .quote {
     font-size: 1.05rem;
     line-height: 1.65;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
 }
 
 .quote-author {
@@ -660,10 +715,23 @@ h1 {
 }
 
 .footer {
-    margin-top: 18px;
+    margin-top: var(--md-space-md);
     text-align: center;
     color: var(--md-muted-inverse);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding: var(--md-space-md) 0;
+    position: relative;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--md-primary), transparent);
 }
 
 @media (max-width: 1080px) {
@@ -725,4 +793,95 @@ h1 {
     .nav-card {
         min-height: 132px;
     }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .nav-card {
+        min-height: 120px;
+    }
+
+    .nav-card:hover {
+        transform: none;
+    }
+
+    .nav-card:active {
+        transform: scale(0.98);
+    }
+
+    .project-item:active {
+        transform: scale(0.98);
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+}
+
+/* 中间断点 */
+@media (max-width: 900px) {
+    .board {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "hero hero"
+            "weather quote"
+            "skills projects"
+            "nav1 nav2"
+            "nav3 nav4";
+    }
+
+    .hero-card {
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 200px;
+        border-radius: var(--md-radius-md);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 超小屏幕 */
+@media (max-width: 420px) {
+    .page {
+        width: 96vw;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .time-line {
+        font-size: 1.6rem;
+    }
+}
+
+::selection {
+    background: var(--md-primary);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--md-line-strong);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-muted);
 }
