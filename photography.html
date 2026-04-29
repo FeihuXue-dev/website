@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./pictures/哆啦A梦裂缝分割logo-modified.png">
+    <title>摄影分享 | 薛飞虎</title>
+    <meta name="description" content="薛飞虎的摄影图片分享页面，每天随机展示一张摄影作品。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Roboto:wght@400;500;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">加载中...</p>
+    </div>
+    <div class="page-shell">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="page">
+        <header class="top-appbar material-card">
+            <div class="appbar-left">
+                <img src="./pictures/哆啦A梦裂缝分割logo-modified.png" alt="站点 Logo" class="app-logo">
+                <div>
+                    <p class="label">PHOTOGRAPHY</p>
+                    <h1>摄影分享</h1>
+                </div>
+            </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="切换深色模式"><i class="fas fa-moon"></i></button>
+            <a href="index.html" class="app-action">
+                <i class="fas fa-arrow-left"></i>
+                <span>返回主页</span>
+            </a>
+        </header>
+
+        <main class="gallery-page">
+            <section class="material-card gallery-hero animate-in">
+                <p class="label">DAILY SHOT</p>
+                <h2>今日随机摄影</h2>
+                <p>每天从本地摄影作品文件夹随机选取一张发布到网站，保持页面轻量，也避免把完整摄影库上传到 GitHub。</p>
+            </section>
+
+            <section class="photo-grid animate-in" id="photoGallery" aria-label="摄影图片列表"></section>
+        </main>
+
+        <footer class="footer">
+            <p>Copyright &copy; 2026 Xuefeihu · Built with ❤️</p>
+        </footer>
+    </div>
+
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="photography-manifest.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

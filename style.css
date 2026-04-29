@@ -369,8 +369,9 @@ h1 {
     grid-template-areas:
         "hero weather quote"
         "hero skills projects"
-        "hero nav1 nav2"
-        "hero nav3 nav4";
+        "hero photo photo"
+        "nav1 nav2 nav3"
+        "nav4 nav4 nav4";
     gap: 16px;
 }
 
@@ -577,22 +578,22 @@ h1 {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.nav-card:nth-of-type(4) { grid-area: nav1; }
-.nav-card:nth-of-type(5) { grid-area: nav2; }
-.nav-card:nth-of-type(6) { grid-area: nav3; }
-.nav-card:nth-of-type(7) { grid-area: nav4; }
+.nav-github { grid-area: nav1; }
+.nav-cv { grid-area: nav2; }
+.nav-social { grid-area: nav3; }
+.nav-mail { grid-area: nav4; }
 
 /* 品牌色图标 */
-.nav-card:nth-of-type(4) .nav-card-icon {
+.nav-github .nav-card-icon {
     background: linear-gradient(135deg, #333, #6e5494);
 }
-.nav-card:nth-of-type(5) .nav-card-icon {
+.nav-cv .nav-card-icon {
     background: linear-gradient(135deg, #2f6df6, #1f4fc0);
 }
-.nav-card:nth-of-type(6) .nav-card-icon {
+.nav-social .nav-card-icon {
     background: linear-gradient(135deg, #1da1f2, #0d8bd9);
 }
-.nav-card:nth-of-type(7) .nav-card-icon {
+.nav-mail .nav-card-icon {
     background: linear-gradient(135deg, #ea4335, #d93025);
 }
 
@@ -613,6 +614,141 @@ h1 {
     font-size: 0.85rem;
     margin: 0;
     line-height: 1.5;
+}
+
+/* === 摄影入口 === */
+.photography-card {
+    grid-area: photo;
+    color: var(--md-text);
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: minmax(180px, 0.85fr) 1fr;
+    gap: var(--md-space-lg);
+    padding: var(--md-space-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.photography-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--md-shadow-2);
+    border-color: var(--md-primary);
+}
+
+.photography-preview {
+    min-height: 180px;
+    border-radius: var(--md-radius-md);
+    overflow: hidden;
+    position: relative;
+    background: var(--md-line);
+}
+
+.photography-preview img {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--md-transition-slow);
+}
+
+.photography-card:hover .photography-preview img {
+    transform: scale(1.05);
+}
+
+.photography-badge {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.68);
+    color: #fff;
+    font-size: 0.82rem;
+    backdrop-filter: blur(12px);
+}
+
+.photography-copy {
+    align-self: center;
+}
+
+.photography-copy h3 {
+    margin: 6px 0 10px;
+    font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+}
+
+.photography-copy p:last-child {
+    color: var(--md-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* === 摄影图库页 === */
+.gallery-page {
+    display: grid;
+    gap: 18px;
+}
+
+.gallery-hero {
+    padding: var(--md-space-xl);
+}
+
+.gallery-hero h2 {
+    margin: 6px 0 12px;
+    font-size: clamp(1.45rem, 3vw, 2.2rem);
+    max-width: 720px;
+}
+
+.gallery-hero p:last-child {
+    color: var(--md-muted);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 780px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.photo-item {
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--md-text);
+}
+
+.photo-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--md-line);
+    transition: transform var(--md-transition-slow);
+}
+
+.photo-item:hover img {
+    transform: scale(1.04);
+}
+
+.photo-meta {
+    margin: 0;
+    padding: 14px 16px 16px;
+}
+
+.photo-item h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.photo-item p {
+    margin: 0;
+    color: var(--md-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
 }
 
 /* === 技能卡片 === */
@@ -807,6 +943,7 @@ h1 {
 .board > .animate-in:nth-child(7) { animation-delay: 0.47s; }
 .board > .animate-in:nth-child(8) { animation-delay: 0.54s; }
 .board > .animate-in:nth-child(9) { animation-delay: 0.61s; }
+.board > .animate-in:nth-child(10) { animation-delay: 0.68s; }
 
 /* === 全局选择 === */
 ::selection {
@@ -842,6 +979,7 @@ h1 {
             "hero hero"
             "weather quote"
             "skills projects"
+            "photo photo"
             "nav1 nav2"
             "nav3 nav4";
     }
@@ -866,6 +1004,7 @@ h1 {
             "hero hero"
             "weather quote"
             "skills projects"
+            "photo photo"
             "nav1 nav2"
             "nav3 nav4";
     }
@@ -918,6 +1057,7 @@ h1 {
             "quote"
             "skills"
             "projects"
+            "photo"
             "nav1"
             "nav2"
             "nav3"
@@ -949,6 +1089,11 @@ h1 {
 
     .nav-card {
         min-height: 120px;
+        padding: var(--md-space-md);
+    }
+
+    .photography-card {
+        grid-template-columns: 1fr;
         padding: var(--md-space-md);
     }
 

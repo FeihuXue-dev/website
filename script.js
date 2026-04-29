@@ -24,6 +24,23 @@ const timeLine = document.getElementById("timeLine");
 const weatherLine = document.getElementById("weatherLine");
 const quoteText = document.getElementById("quoteText");
 const quoteAuthor = document.getElementById("quoteAuthor");
+const homePhotographyImage = document.getElementById("homePhotographyImage");
+const homePhotographyCaption = document.getElementById("homePhotographyCaption");
+const photoGallery = document.getElementById("photoGallery");
+
+const fallbackPhotographyImages = [
+  {
+    title: "武汉大学大暑",
+    src: "./pictures/武汉大学大暑.jpg",
+    description: "夏日校园里的光影与热烈。"
+  },
+  {
+    title: "小猫",
+    src: "./pictures/小猫.jpg",
+    description: "镜头里安静又灵动的片刻。"
+  }
+];
+const photographyImages = window.photographyImages || fallbackPhotographyImages;
 
 const weatherMap = {
   0: "晴",
@@ -159,6 +176,38 @@ setInterval(loadWuhanWeather, 10 * 60 * 1000);
 
 loadRandomQuote();
 setInterval(loadRandomQuote, 30 * 60 * 1000);
+
+function loadHomePhotographyPreview() {
+  if (!homePhotographyImage || !homePhotographyCaption || photographyImages.length === 0) {
+    return;
+  }
+
+  const randomIndex = Math.floor(Math.random() * photographyImages.length);
+  const image = photographyImages[randomIndex];
+
+  homePhotographyImage.src = image.src;
+  homePhotographyImage.alt = image.title;
+  homePhotographyCaption.textContent = `${image.title} · ${image.description}`;
+}
+
+function renderPhotoGallery() {
+  if (!photoGallery) {
+    return;
+  }
+
+  photoGallery.innerHTML = photographyImages.map((image) => `
+    <a class="material-card photo-item" href="${image.src}" target="_blank" rel="noopener">
+      <img src="${image.src}" alt="${image.title}" loading="lazy">
+      <div class="photo-meta">
+        <h3>${image.title}</h3>
+        <p>${image.description}</p>
+      </div>
+    </a>
+  `).join("");
+}
+
+loadHomePhotographyPreview();
+renderPhotoGallery();
 
 // === 返回顶部 ===
 const backToTop = document.getElementById("backToTop");

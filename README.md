@@ -18,6 +18,39 @@
 
 无需构建工具，直接托管即可上线（推荐 Cloudflare Pages）。
 
+## 摄影作品自动同步
+
+网站支持从本机摄影目录随机选取 1 张图片发布到摄影分享页，避免把完整摄影库上传到 GitHub。
+
+### 手动同步一次
+
+```powershell
+node scripts/sync-photography.mjs --source "G:\Lumix_Photo" --site "I:\Crack_Detection\My_model\website"
+```
+
+同步后会生成或更新：
+
+- `pictures/photography/daily-photo.jpg`：今日随机摄影图片
+- `photography-manifest.js`：主页摄影入口与摄影页使用的单图清单
+
+### 注册每天自动同步
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/register-photography-sync.ps1
+```
+
+默认任务名为 `WebsitePhotographySync`，每天 03:00 扫描 `G:\Lumix_Photo`。如需修改时间：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/register-photography-sync.ps1 -At "22:30"
+```
+
+如果需要计划任务每天同步后自动提交并推送到 GitHub，使用：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/register-photography-sync.ps1 -CommitAndPush
+```
+
 ## 技术栈
 
 - HTML5: `index.html`
