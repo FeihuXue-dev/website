@@ -1,6 +1,6 @@
 window.photographyImages = [
   {
-    "title": "P1012869",
+    "title": "P1012979",
     "src": "./pictures/photography/daily-photo.jpg",
     "description": "今日随机摄影作品。"
   }
